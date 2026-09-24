@@ -12,34 +12,39 @@ const links = [
 export default function Header() {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
-  const [overLightBackground, setOverLightBackground] = useState(pathname !== '/')
+  const [theme, setTheme] = useState('dark')
 
   useEffect(() => {
     setOpen(false)
 
-    if (pathname !== '/') {
-      setOverLightBackground(true)
-      return
+    const updateTheme = () => {
+      const probeY = 78
+      const sections = Array.from(document.querySelectorAll('[data-header-theme]'))
+      const active = sections.find((section) => {
+        const rect = section.getBoundingClientRect()
+        return rect.top <= probeY && rect.bottom > probeY
+      })
+
+      if (active?.dataset.headerTheme) {
+        setTheme(active.dataset.headerTheme)
+        return
+      }
+
+      setTheme(pathname === '/' ? 'dark' : 'light')
     }
 
-    const updateHeaderTone = () => {
-      // The pinned hero changes from dark to a light workshop background
-      // after roughly one viewport of scroll. From that point onward the
-      // dark navigation stays readable across the light Home sections.
-      setOverLightBackground(window.scrollY > window.innerHeight * 1.15)
-    }
-
-    updateHeaderTone()
-    window.addEventListener('scroll', updateHeaderTone, { passive: true })
-    window.addEventListener('resize', updateHeaderTone)
+    const frame = requestAnimationFrame(updateTheme)
+    window.addEventListener('scroll', updateTheme, { passive: true })
+    window.addEventListener('resize', updateTheme)
 
     return () => {
-      window.removeEventListener('scroll', updateHeaderTone)
-      window.removeEventListener('resize', updateHeaderTone)
+      cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', updateTheme)
+      window.removeEventListener('resize', updateTheme)
     }
   }, [pathname])
 
-  const toneClass = overLightBackground ? 'header-dark' : 'header-light'
+  const toneClass = theme === 'light' ? 'header-on-light' : 'header-on-dark'
 
   return (
     <header className={`site-header ${toneClass} ${open ? 'menu-open' : ''}`}>
