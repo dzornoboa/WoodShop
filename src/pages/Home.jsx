@@ -19,8 +19,8 @@ export default function Home() {
       <section className="statement-section section-pad">
         <span className="eyebrow dark">What we make</span>
         <div className="statement-grid">
-          <h2>Doors with the craft of furniture<br/>and the confidence of structure.</h2>
-          <p>WoodShop is a joinery-led workshop focused on custom timber doors, modern security doors and well-finished entrance systems. We treat the frame, core, face, hardware and finish as one complete build.</p>
+          <h2>Crafted like furniture.<br/>Built like architecture.</h2>
+          <p>WoodShop creates custom timber doors, modern security doors and refined entrance systems. Every frame, core, face, hinge, lock and finish is considered as part of one complete build.</p>
         </div>
       </section>
 
@@ -39,7 +39,7 @@ export default function Home() {
         <div className="workshop-copy">
           <span className="eyebrow">Inside the workshop</span>
           <h2>The work happens before the door reaches the wall.</h2>
-          <p>Move your pointer across the workshop image. The media plane responds with a subtle spatial tilt, echoing the interactive motion language used throughout the site.</p>
+          <p>Every door is measured, cut, joined, reinforced and finished in the workshop before installation. That control is what gives the final door its fit, strength and finish.</p>
           <Link to="/about" className="arrow-link">See how we build <ArrowRight size={18}/></Link>
         </div>
         <PointerImage src={workshopImages.bench}/>
@@ -49,7 +49,7 @@ export default function Home() {
         <div className="section-heading-row">
           <div>
             <span className="eyebrow dark">Selected doors</span>
-            <h2>Built for different spaces.</h2>
+            <h2>Different doors. One standard of finish.</h2>
           </div>
           <Link to="/shop" className="outline-button">Explore the shop <ArrowRight size={18}/></Link>
         </div>
