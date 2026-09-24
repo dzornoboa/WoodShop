@@ -765,3 +765,462 @@ dd { margin: 0; font-size: 13px; }
   .custom-cursor,
   .custom-cursor * { cursor: auto !important; }
 }
+
+
+/* Generated WoodShop catalogue renders */
+.generated-door-stage,
+.generated-modal-stage {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,255,255,.95), rgba(225,227,228,.78) 55%, rgba(202,205,207,.82) 100%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.door-visual {
+  width: 78%;
+  aspect-ratio: 4 / 5;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 24px 28px rgba(17,16,14,.18));
+  transition: transform .75s cubic-bezier(.2,.7,.2,1), filter .4s ease;
+}
+.generated-card .door-card-image {
+  padding: 34px 0 86px;
+}
+.generated-card:hover .door-visual {
+  transform: scale(1.045) translateY(-4px);
+  filter: drop-shadow(0 34px 34px rgba(17,16,14,.24));
+}
+.generated-card:after {
+  background: linear-gradient(to top,rgba(10,9,8,.82) 0%,rgba(10,9,8,.05) 46%,transparent 70%);
+}
+.generated-modal-stage {
+  min-height: 100%;
+}
+.generated-modal-stage .door-visual {
+  width: min(76%, 430px);
+}
+.shop-intro-row {
+  display: grid;
+  grid-template-columns: 1fr .72fr;
+  gap: 6vw;
+  align-items: start;
+  max-width: 1180px;
+}
+.shop-intro-row p { margin: 0; }
+.render-note {
+  border-left: 1px solid var(--line);
+  padding-left: 24px;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+  color: #80786f !important;
+}
+
+/* About */
+.about-page { background: var(--paper); }
+.about-hero {
+  padding-top: 150px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr .7fr;
+  gap: 6vw;
+  align-items: center;
+}
+.about-hero-copy h1,
+.contact-hero h1 {
+  font-size: clamp(62px,8vw,124px);
+  line-height: .87;
+  letter-spacing: -.055em;
+  margin: 18px 0 30px;
+  font-weight: 600;
+}
+.about-hero-copy h1 em,
+.contact-hero h1 em {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+.about-hero-copy > p,
+.contact-hero > p {
+  max-width: 650px;
+  color: #635e56;
+  line-height: 1.8;
+  font-size: 16px;
+}
+.about-door-showcase {
+  position: relative;
+  min-height: 680px;
+  background: #e4e5e5;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.about-door-showcase:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 44%,rgba(255,255,255,.9),transparent 60%);
+}
+.about-door-showcase .door-visual {
+  position: relative;
+  z-index: 1;
+  width: 76%;
+}
+.about-door-showcase > span {
+  position: absolute;
+  z-index: 2;
+  left: 22px;
+  bottom: 18px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: #69645d;
+}
+.about-manifesto {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: .45fr 1.15fr;
+  gap: 7vw;
+}
+.manifesto-kicker {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: #766b5f;
+}
+.manifesto-copy h2 {
+  font-family: var(--serif);
+  font-size: clamp(48px,6vw,92px);
+  line-height: .95;
+  font-weight: 500;
+  letter-spacing: -.04em;
+  margin: 0 0 32px;
+}
+.manifesto-copy p {
+  max-width: 800px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #5f5a52;
+}
+.about-workshop {
+  background: #13120f;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1.1fr .8fr;
+  gap: 7vw;
+  align-items: center;
+}
+.about-workshop-image { position: relative; }
+.about-workshop-image img {
+  height: 72vh;
+  object-fit: cover;
+}
+.image-caption {
+  display: block;
+  margin-top: 12px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: rgba(255,255,255,.45);
+}
+.about-workshop-copy h2,
+.build-process-title h2 {
+  font-family: var(--serif);
+  font-size: clamp(48px,5vw,78px);
+  line-height: .98;
+  font-weight: 500;
+  letter-spacing: -.04em;
+  margin: 18px 0 28px;
+}
+.about-workshop-copy p {
+  color: rgba(255,255,255,.58);
+  line-height: 1.75;
+}
+.compact-heading { margin-bottom: 44px; }
+.compact-heading h2 { font-size: clamp(42px,5vw,72px); }
+.discipline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.discipline-card {
+  min-height: 320px;
+  padding: 32px 26px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.discipline-card svg { margin-bottom: 58px; }
+.discipline-card h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0 0 14px;
+}
+.discipline-card p {
+  color: #6b655c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.build-process {
+  background: #7b4b2c;
+  color: #fff;
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 8vw;
+}
+.process-list { border-top: 1px solid rgba(255,255,255,.22); }
+.process-line {
+  display: grid;
+  grid-template-columns: 52px .45fr 1fr;
+  gap: 24px;
+  align-items: start;
+  border-bottom: 1px solid rgba(255,255,255,.22);
+  padding: 22px 0;
+}
+.process-line > span {
+  font-size: 10px;
+  letter-spacing: .14em;
+  opacity: .55;
+}
+.process-line h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+}
+.process-line p {
+  margin: 0;
+  color: rgba(255,255,255,.62);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.materials-band {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  border-bottom: 1px solid var(--line);
+}
+.materials-band > div {
+  min-height: 120px;
+  padding: 26px 6vw 26px 24px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+.materials-band span {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #5e5952;
+}
+.about-cta {
+  background: #11100e;
+  color: #fff;
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.about-cta h2 {
+  font-size: clamp(58px,8vw,118px);
+  line-height: .89;
+  letter-spacing: -.055em;
+  margin: 24px 0 44px;
+}
+.about-cta h2 em {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+/* Contact */
+.contact-page { background: var(--paper); padding-top: 76px; }
+.contact-hero {
+  padding-top: 135px;
+  padding-bottom: 85px;
+  border-bottom: 1px solid var(--line);
+}
+.contact-hero h1 { max-width: 1050px; }
+.contact-layout {
+  display: grid;
+  grid-template-columns: .75fr 1.25fr;
+  gap: 7vw;
+  align-items: start;
+}
+.contact-detail-intro { margin-bottom: 38px; }
+.contact-detail-intro h2 {
+  font-family: var(--serif);
+  font-size: 40px;
+  line-height: 1.05;
+  font-weight: 500;
+  margin: 14px 0 0;
+}
+.contact-card {
+  min-height: 92px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 38px 1fr 20px;
+  gap: 14px;
+  align-items: center;
+  transition: padding .25s ease, background .25s ease;
+}
+.contact-card:last-of-type { border-bottom: 1px solid var(--line); }
+.contact-card:hover { padding-left: 10px; background: rgba(255,255,255,.35); }
+.contact-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.contact-card div span {
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  font-size: 9px;
+  color: #847a6f;
+}
+.contact-card strong {
+  font-size: 14px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.contact-prep {
+  margin-top: 46px;
+  display: grid;
+  gap: 15px;
+}
+.contact-prep div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #676158;
+  font-size: 12px;
+}
+.quote-form {
+  background: #e7e0d5;
+  padding: clamp(28px,5vw,62px);
+}
+.form-heading h2 {
+  font-family: var(--serif);
+  font-size: 54px;
+  font-weight: 500;
+  margin: 10px 0 28px;
+}
+.selected-door-note {
+  margin: -14px 0 28px;
+  font-size: 13px;
+  color: #655d54;
+}
+.quote-form label {
+  display: block;
+  margin-bottom: 22px;
+}
+.quote-form label > span {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  margin-bottom: 8px;
+  color: #665c51;
+}
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(17,16,14,.28);
+  background: transparent;
+  border-radius: 0;
+  padding: 12px 0;
+  font: inherit;
+  color: var(--ink);
+  outline: none;
+}
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+  border-bottom-color: var(--ink);
+}
+.quote-form textarea { resize: vertical; min-height: 120px; }
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.quote-submit {
+  border: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: 15px 19px;
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 11px;
+  align-items: center;
+  margin-top: 5px;
+}
+.form-note {
+  font-size: 10px;
+  line-height: 1.55;
+  color: #746b61;
+  margin-top: 13px;
+}
+.contact-bottom-band {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  background: #11100e;
+  color: #fff;
+}
+.contact-bottom-band span {
+  min-height: 90px;
+  padding: 22px 6vw 22px 20px;
+  border-right: 1px solid rgba(255,255,255,.16);
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.72);
+}
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 11px;
+  color: rgba(255,255,255,.62);
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .shop-intro-row,
+  .about-hero,
+  .about-manifesto,
+  .about-workshop,
+  .build-process,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+  .about-door-showcase { min-height: 620px; }
+  .about-manifesto { gap: 30px; }
+  .discipline-grid { grid-template-columns: 1fr 1fr; }
+  .materials-band,
+  .contact-bottom-band { grid-template-columns: 1fr 1fr; }
+  .footer-contact { text-align: left; }
+  .generated-modal-stage { min-height: 44vh; }
+}
+
+@media (max-width: 560px) {
+  .about-hero { padding-top: 125px; }
+  .about-hero-copy h1,
+  .contact-hero h1 { font-size: 54px; }
+  .about-door-showcase { min-height: 510px; }
+  .discipline-grid,
+  .materials-band,
+  .contact-bottom-band,
+  .field-grid { grid-template-columns: 1fr; }
+  .discipline-card { min-height: 260px; }
+  .process-line {
+    grid-template-columns: 34px 1fr;
+  }
+  .process-line p { grid-column: 2; }
+  .contact-layout { padding-top: 70px; }
+  .quote-form { margin-left: -20px; margin-right: -20px; }
+  .generated-card .door-card-image { padding: 25px 0 92px; }
+  .generated-card .door-visual { width: 88%; }
+}
