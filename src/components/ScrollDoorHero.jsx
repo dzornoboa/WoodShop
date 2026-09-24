@@ -238,7 +238,13 @@ export default function ScrollDoorHero() {
       }
     }, section)
 
-    return () => ctx.revert()
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.trigger === section.current) trigger.kill(true)
+      })
+      ctx.revert()
+      ScrollTrigger.clearScrollMemory()
+    }
   }, [])
 
   return (
