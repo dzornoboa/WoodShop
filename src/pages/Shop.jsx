@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { X, ArrowRight } from 'lucide-react'
 import ProductGrid from '../components/ProductGrid'
 import DoorVisual from '../components/DoorVisual'
-import { categories, doors } from '../data/doors'
+import { categories, doors, workshopImages } from '../data/doors'
 
 export default function Shop() {
   const [active, setActive] = useState('All')
@@ -16,12 +16,19 @@ export default function Shop() {
 
   return (
     <main className="shop-page">
-      <section className="shop-hero section-pad" data-header-theme="light">
-        <span className="eyebrow dark">WoodShop collection</span>
-        <h1>Built to protect.<br/><em>Finished to belong.</em></h1>
-        <div className="shop-intro-row">
-          <p>Every catalogue design starts from the same workshop discipline: measured proportions, considered joinery, durable hardware and a finish selected for the space.</p>
-          <p className="render-note">The collection below uses WoodShop concept renders developed from our door references so the range is shown with one consistent camera, background and lighting system.</p>
+      <section
+        className="shop-hero shop-hero-image section-pad"
+        data-header-theme="dark"
+        style={{ '--hero-bg': `url(${workshopImages.bench})` }}
+      >
+        <div className="page-hero-overlay" />
+        <div className="page-hero-copy">
+          <span className="eyebrow">WoodShop collection</span>
+          <h1>Built to protect.<br/><em>Finished to belong.</em></h1>
+          <div className="shop-intro-row">
+            <p>Every catalogue design starts from the same workshop discipline: measured proportions, considered joinery, durable hardware and a finish selected for the space.</p>
+            <p className="render-note">Choose a starting design, then specify the size, finish, hardware and security details for your project.</p>
+          </div>
         </div>
       </section>
 
