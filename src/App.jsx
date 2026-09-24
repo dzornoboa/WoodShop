@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import NailCursor from './components/NailCursor'
@@ -10,7 +10,24 @@ import Contact from './pages/Contact'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
-  useEffect(() => window.scrollTo(0, 0), [pathname])
+
+  useLayoutEffect(() => {
+    const root = document.documentElement
+    const previous = root.style.scrollBehavior
+
+    // Route changes must be instant. A smooth scroll from the very tall
+    // pinned Home timeline can leave the next page temporarily outside
+    // the viewport, which looks like a blank page until refresh.
+    root.style.scrollBehavior = 'auto'
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+
+    const frame = requestAnimationFrame(() => {
+      root.style.scrollBehavior = previous
+    })
+
+    return () => cancelAnimationFrame(frame)
+  }, [pathname])
+
   return null
 }
 
