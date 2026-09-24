@@ -1,6 +1,5 @@
 import { ArrowRight, Hammer, Ruler, ShieldCheck, Sparkles, Layers3, Wrench } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import DoorVisual from '../components/DoorVisual'
 import { workshopImages } from '../data/doors'
 
 const disciplines = [
@@ -37,19 +36,20 @@ const process = [
 export default function About() {
   return (
     <main className="about-page">
-      <section className="about-hero section-pad">
-        <div className="about-hero-copy">
-          <span className="eyebrow dark">About WoodShop</span>
+      <section
+        className="about-hero about-hero-image section-pad"
+        data-header-theme="dark"
+        style={{ '--hero-bg': `url(${workshopImages.joiner})` }}
+      >
+        <div className="page-hero-overlay" />
+        <div className="about-hero-copy page-hero-copy">
+          <span className="eyebrow">About WoodShop</span>
           <h1>Made by joiners.<br/><em>Not picked from a shelf.</em></h1>
           <p>WoodShop is built around workshop craft: measuring, cutting, joining, reinforcing and finishing doors for the spaces they are meant to serve.</p>
         </div>
-        <div className="about-door-showcase">
-          <DoorVisual index={2} label="Facet Walnut WoodShop door" />
-          <span>Workshop concept / Facet Walnut</span>
-        </div>
       </section>
 
-      <section className="about-manifesto section-pad">
+      <section className="about-manifesto section-pad" data-header-theme="light">
         <div className="manifesto-kicker">What a joiner brings</div>
         <div className="manifesto-copy">
           <h2>A door is more than the face you see.</h2>
@@ -57,9 +57,9 @@ export default function About() {
         </div>
       </section>
 
-      <section className="about-workshop section-pad">
+      <section className="about-workshop section-pad" data-header-theme="dark">
         <div className="about-workshop-image">
-          <img src={workshopImages.joiner} alt="Joiner working with timber in a workshop" />
+          <img src={workshopImages.bench} alt="Joinery workbench and timber craftsmanship" />
           <span className="image-caption">Workshop craft / shaping & fitting</span>
         </div>
         <div className="about-workshop-copy">
@@ -71,7 +71,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="disciplines-section section-pad">
+      <section className="disciplines-section section-pad" data-header-theme="light">
         <div className="section-heading-row compact-heading">
           <div>
             <span className="eyebrow dark">Our discipline</span>
@@ -89,7 +89,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="build-process section-pad">
+      <section className="build-process section-pad" data-header-theme="dark">
         <div className="build-process-title">
           <span className="eyebrow">From brief to build</span>
           <h2>One controlled sequence.</h2>
@@ -105,14 +105,14 @@ export default function About() {
         </div>
       </section>
 
-      <section className="materials-band">
+      <section className="materials-band" data-header-theme="light">
         <div><Hammer size={22}/><span>Hardwood & engineered timber</span></div>
         <div><ShieldCheck size={22}/><span>Reinforced security cores</span></div>
         <div><Wrench size={22}/><span>Locks, hinges & fittings</span></div>
         <div><Sparkles size={22}/><span>Stains, oils & protective finishes</span></div>
       </section>
 
-      <section className="about-cta section-pad">
+      <section className="about-cta section-pad" data-header-theme="dark">
         <span className="eyebrow">Made for your opening</span>
         <h2>Have a design in mind?<br/><em>We can turn it into a build.</em></h2>
         <Link to="/contact" className="light-button">Discuss your door <ArrowRight size={18}/></Link>
