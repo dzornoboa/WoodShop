@@ -1680,3 +1680,299 @@ dd { margin: 0; font-size: 13px; }
   .door-lab-unit { transform: scale(.9) !important; }
   .part-callouts { display: none; }
 }
+
+
+/* Cinematic workshop orbit around the exploded door */
+.workshop-orbit {
+  position: absolute;
+  inset: 0;
+  z-index: 38;
+  opacity: 0;
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+.tool,
+.hardware-particle,
+.wood-shaving,
+.dust-speck {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+/* Hammer */
+.tool-hammer {
+  width: 118px;
+  height: 170px;
+  margin-left: -59px;
+  margin-top: -85px;
+  transform-origin: 56px 48px;
+  filter: drop-shadow(0 14px 18px rgba(20,16,12,.2));
+}
+.hammer-handle {
+  position: absolute;
+  left: 50px;
+  top: 43px;
+  width: 18px;
+  height: 120px;
+  border-radius: 10px 10px 7px 7px;
+  background:
+    linear-gradient(90deg,rgba(71,38,15,.38),transparent 24% 72%,rgba(77,42,18,.35)),
+    linear-gradient(#b77a43,#855128);
+  box-shadow: inset 0 0 0 1px rgba(70,39,17,.18);
+  rotate: -3deg;
+}
+.hammer-head {
+  position: absolute;
+  left: 28px;
+  top: 24px;
+  width: 67px;
+  height: 30px;
+  border-radius: 5px 7px 7px 5px;
+  background: linear-gradient(#777a77,#343634 58%,#777a75);
+  box-shadow: inset 0 1px rgba(255,255,255,.35);
+}
+.hammer-head:before {
+  content: '';
+  position: absolute;
+  left: -19px;
+  top: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px 1px 1px 3px;
+  background: linear-gradient(#8a8d88,#3d3f3d);
+}
+.hammer-claw {
+  position: absolute;
+  right: 2px;
+  top: 27px;
+  width: 25px;
+  height: 23px;
+  border-top: 8px solid #4c4e4a;
+  border-right: 5px solid transparent;
+  transform: skewX(-27deg);
+}
+.hammer-claw:after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 4px;
+  width: 2px;
+  height: 17px;
+  background: #d2d1cb;
+  opacity: .35;
+}
+
+/* Chisel */
+.tool-chisel {
+  width: 54px;
+  height: 188px;
+  margin-left: -27px;
+  margin-top: -94px;
+  filter: drop-shadow(0 14px 18px rgba(20,16,12,.17));
+}
+.chisel-handle {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  width: 30px;
+  height: 80px;
+  border-radius: 13px 13px 8px 8px;
+  background:
+    linear-gradient(90deg,rgba(61,34,14,.3),transparent 25% 72%,rgba(61,34,14,.25)),
+    linear-gradient(#a36536,#79441f);
+}
+.chisel-collar {
+  position: absolute;
+  left: 8px;
+  top: 76px;
+  width: 38px;
+  height: 14px;
+  border-radius: 3px;
+  background: linear-gradient(90deg,#545653,#b6b4ad 50%,#484a47);
+}
+.chisel-blade {
+  position: absolute;
+  left: 16px;
+  top: 87px;
+  width: 22px;
+  height: 98px;
+  clip-path: polygon(12% 0,88% 0,100% 90%,50% 100%,0 90%);
+  background: linear-gradient(90deg,#929590,#e3e1da 48%,#777a76);
+  box-shadow: inset 0 0 0 1px rgba(60,60,57,.15);
+}
+
+/* Joiner's square / straightedge */
+.tool-square {
+  width: 160px;
+  height: 150px;
+  margin-left: -80px;
+  margin-top: -75px;
+  filter: drop-shadow(0 13px 18px rgba(20,16,12,.15));
+}
+.square-long {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  width: 13px;
+  height: 127px;
+  background: linear-gradient(90deg,#777a76,#d7d5cf 48%,#6e716e);
+  border-radius: 2px;
+}
+.square-short {
+  position: absolute;
+  left: 20px;
+  top: 129px;
+  width: 118px;
+  height: 13px;
+  background: linear-gradient(#7b7e7a,#d7d5cf 48%,#696c69);
+  border-radius: 2px;
+}
+.square-mark {
+  position: absolute;
+  left: 26px;
+  bottom: 12px;
+  width: 1px;
+  height: 7px;
+  background: rgba(30,31,29,.65);
+}
+.mark-b { left: 54px; }
+.mark-c { left: 83px; }
+
+/* Nails and screws */
+.hardware-particle {
+  width: 28px;
+  height: 10px;
+  margin-left: -14px;
+  margin-top: -5px;
+  filter: drop-shadow(0 5px 6px rgba(20,16,12,.2));
+}
+.nail-particle:before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(#a4a6a1,#4f514f,#b8bab4);
+}
+.nail-particle:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 5px;
+  height: 8px;
+  border-radius: 1px;
+  background: #5d605c;
+  box-shadow: 22px 2px 0 -2px #7d807b;
+}
+.screw-particle {
+  width: 34px;
+}
+.screw-particle:before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 3px;
+  width: 26px;
+  height: 5px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(90deg,#8b8e89 0 3px,#4e514d 3px 5px);
+}
+.screw-particle:after {
+  content: '×';
+  position: absolute;
+  left: -1px;
+  top: -5px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #383a38;
+  font-size: 10px;
+  line-height: 1;
+  background: linear-gradient(#b0b2ad,#656864);
+  border: 1px solid rgba(57,59,56,.4);
+}
+
+/* Curled timber shavings */
+.wood-shaving {
+  width: 48px;
+  height: 24px;
+  margin-left: -24px;
+  margin-top: -12px;
+  border: 4px solid #c38b54;
+  border-left-color: transparent;
+  border-bottom-color: #9b6738;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: inset -2px -2px 0 rgba(97,55,22,.18);
+}
+.wood-shaving:after {
+  content: '';
+  position: absolute;
+  width: 27px;
+  height: 13px;
+  right: -15px;
+  top: 7px;
+  border-top: 3px solid #bc8049;
+  border-radius: 50%;
+  rotate: 23deg;
+}
+.shaving-b { scale: .75; }
+.shaving-c { scale: 1.2; }
+.shaving-d { scale: .6; }
+.shaving-e { scale: .9; }
+.shaving-f { scale: .7; }
+
+/* Very subtle workshop dust */
+.dust-speck {
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  margin-top: -2px;
+  border-radius: 50%;
+  background: #b98756;
+  opacity: 0;
+}
+.dust-1 { transform: translate(-176px,-96px); }
+.dust-2 { transform: translate(-126px,84px); }
+.dust-3 { transform: translate(188px,-88px); }
+.dust-4 { transform: translate(147px,117px); }
+.dust-5 { transform: translate(-208px,25px); }
+.dust-6 { transform: translate(214px,18px); }
+.dust-7 { transform: translate(-73px,-142px); }
+.dust-8 { transform: translate(81px,-152px); }
+.dust-9 { transform: translate(-61px,168px); }
+.dust-10 { transform: translate(104px,154px); }
+
+@media (max-width: 980px) {
+  .workshop-orbit {
+    transform: scale(.9);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 620px) {
+  .tool-hammer,
+  .tool-chisel,
+  .tool-square {
+    scale: .78;
+  }
+  .wood-shaving:nth-of-type(n+5),
+  .hardware-particle:nth-of-type(n+7),
+  .dust-speck:nth-of-type(n+7) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workshop-orbit {
+    display: none;
+  }
+}
