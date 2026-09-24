@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 import { ArrowRight, Mail, MessageCircle, Phone, Ruler, ShieldCheck } from 'lucide-react'
-import { doors } from '../data/doors'
+import { doors, workshopImages } from '../data/doors'
 
 export default function Contact() {
   const location = useLocation()
@@ -35,13 +35,20 @@ export default function Contact() {
 
   return (
     <main className="contact-page">
-      <section className="contact-hero section-pad">
-        <span className="eyebrow dark">Contact WoodShop</span>
-        <h1>Tell us about<br/><em>the opening.</em></h1>
-        <p>Share the door style, opening size, intended use and any security requirement. A reference image is welcome too — you can send it by WhatsApp or email after your first message.</p>
+      <section
+        className="contact-hero contact-hero-image section-pad"
+        data-header-theme="dark"
+        style={{ '--hero-bg': `url(${workshopImages.detail})` }}
+      >
+        <div className="page-hero-overlay" />
+        <div className="page-hero-copy">
+          <span className="eyebrow">Contact WoodShop</span>
+          <h1>Tell us about<br/><em>the opening.</em></h1>
+          <p>Share the door style, opening size, intended use and any security requirement. A reference image is welcome too — you can send it by WhatsApp or email after your first message.</p>
+        </div>
       </section>
 
-      <section className="contact-layout section-pad">
+      <section className="contact-layout section-pad" data-header-theme="light">
         <div className="contact-details">
           <div className="contact-detail-intro">
             <span className="eyebrow dark">Direct contact</span>
@@ -130,7 +137,7 @@ export default function Contact() {
         </form>
       </section>
 
-      <section className="contact-bottom-band">
+      <section className="contact-bottom-band" data-header-theme="dark">
         <span>Custom joinery</span>
         <span>Security doors</span>
         <span>Timber entrance doors</span>
