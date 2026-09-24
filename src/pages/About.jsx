@@ -59,7 +59,7 @@ export default function About() {
 
       <section className="about-workshop section-pad" data-header-theme="dark">
         <div className="about-workshop-image">
-          <img src={workshopImages.bench} alt="Joinery workbench and timber craftsmanship" />
+          <img src={workshopImages.bench} alt="Joinery workbench and timber craftsmanship" loading="lazy" decoding="async" />
           <span className="image-caption">Workshop craft / shaping & fitting</span>
         </div>
         <div className="about-workshop-copy">
