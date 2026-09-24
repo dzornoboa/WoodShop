@@ -69,13 +69,101 @@ export default function ScrollDoorHero() {
         .to('.phase-three', { opacity: 1, y: 0, duration: .22 }, 1.9)
         .to('.part-callouts', { opacity: 1, duration: .3 }, 1.88)
 
+        // Workshop details enter around the exploded assembly
+        .fromTo('.workshop-orbit', {
+          opacity: 0,
+          scale: .72,
+        }, {
+          opacity: 1,
+          scale: 1,
+          duration: .52,
+        }, 1.58)
+        .fromTo('.tool-hammer', {
+          x: -280,
+          y: 180,
+          rotate: -68,
+        }, {
+          x: -190,
+          y: 92,
+          rotate: -26,
+          duration: .7,
+        }, 1.58)
+        .fromTo('.tool-chisel', {
+          x: 270,
+          y: -190,
+          rotate: 56,
+        }, {
+          x: 182,
+          y: -96,
+          rotate: 18,
+          duration: .7,
+        }, 1.62)
+        .fromTo('.tool-square', {
+          x: 285,
+          y: 145,
+          rotate: 80,
+        }, {
+          x: 185,
+          y: 92,
+          rotate: 15,
+          duration: .7,
+        }, 1.66)
+        .fromTo('.hardware-particle', {
+          opacity: 0,
+          scale: .2,
+          x: 0,
+          y: 0,
+          rotation: 0,
+        }, {
+          opacity: .9,
+          scale: 1,
+          x: (i) => [-235,-196,-152,206,232,172,128,-215][i % 8],
+          y: (i) => [-116,-44,154,-132,-28,162,70,34][i % 8],
+          rotation: (i) => [-34,22,71,-18,52,96,-62,39][i % 8],
+          stagger: .045,
+          duration: .52,
+        }, 1.6)
+        .fromTo('.wood-shaving', {
+          opacity: 0,
+          scale: .35,
+          x: 0,
+          y: 45,
+          rotation: 0,
+        }, {
+          opacity: .62,
+          scale: 1,
+          x: (i) => [-245,-118,142,246,-205,196][i % 6],
+          y: (i) => [188,215,204,164,104,128][i % 6],
+          rotation: (i) => [-18,32,9,-28,54,-42][i % 6],
+          stagger: .05,
+          duration: .6,
+        }, 1.7)
+        .to('.dust-speck', {
+          opacity: .32,
+          x: (i) => [22,-18,35,-30,14,-12,28,-22,18,-10][i % 10],
+          y: (i) => [-34,-20,-48,-27,-42,-30,-18,-52,-26,-38][i % 10],
+          rotation: (i) => 20 + i * 13,
+          stagger: .025,
+          duration: .7,
+        }, 1.72)
+
         // 03 — inspection orbit
         .to('.door-lab-unit', { rotateY: 13, rotateX: -2.5, scale: .93, xPercent: 0, duration: .72 }, 2.03)
+        .to('.tool-hammer', { x: -214, y: 72, rotate: -14, duration: .72 }, 2.03)
+        .to('.tool-chisel', { x: 205, y: -74, rotate: 30, duration: .72 }, 2.03)
+        .to('.tool-square', { x: 214, y: 108, rotate: 4, duration: .72 }, 2.03)
+        .to('.hardware-particle', {
+          x: (i) => [-252,-208,-167,224,246,192,143,-229][i % 8],
+          y: (i) => [-128,-56,168,-145,-37,176,84,47][i % 8],
+          rotation: (i) => 35 + i * 41,
+          duration: .72,
+        }, 2.03)
         .to('.lab-front-face', { x: 205, z: 345, duration: .72 }, 2.03)
         .to('.lab-back-face', { x: -180, z: -320, duration: .72 }, 2.03)
         .to('.door-lab-unit', { rotateY: -10, rotateX: 3, duration: .72 }, 2.72)
 
         // 04 — rebuild
+        .to('.workshop-orbit', { opacity: 0, scale: .86, duration: .38 }, 3.02)
         .to('.part-callouts', { opacity: 0, duration: .2 }, 3.18)
         .to('.phase-three', { opacity: 0, y: -14, duration: .18 }, 3.18)
         .to('.phase-four', { opacity: 1, y: 0, duration: .2 }, 3.28)
@@ -199,6 +287,55 @@ export default function ScrollDoorHero() {
           <span className="callout callout-core">Reinforced core</span>
           <span className="callout callout-face">Timber + steel face</span>
           <span className="callout callout-hardware">Hardware</span>
+        </div>
+
+        <div className="workshop-orbit" aria-hidden="true">
+          <div className="tool tool-hammer">
+            <span className="hammer-handle" />
+            <span className="hammer-head" />
+            <span className="hammer-claw" />
+          </div>
+
+          <div className="tool tool-chisel">
+            <span className="chisel-handle" />
+            <span className="chisel-collar" />
+            <span className="chisel-blade" />
+          </div>
+
+          <div className="tool tool-square">
+            <span className="square-long" />
+            <span className="square-short" />
+            <span className="square-mark mark-a" />
+            <span className="square-mark mark-b" />
+            <span className="square-mark mark-c" />
+          </div>
+
+          <span className="hardware-particle nail-particle n1" />
+          <span className="hardware-particle screw-particle s1" />
+          <span className="hardware-particle nail-particle n2" />
+          <span className="hardware-particle screw-particle s2" />
+          <span className="hardware-particle nail-particle n3" />
+          <span className="hardware-particle screw-particle s3" />
+          <span className="hardware-particle nail-particle n4" />
+          <span className="hardware-particle screw-particle s4" />
+
+          <span className="wood-shaving shaving-a" />
+          <span className="wood-shaving shaving-b" />
+          <span className="wood-shaving shaving-c" />
+          <span className="wood-shaving shaving-d" />
+          <span className="wood-shaving shaving-e" />
+          <span className="wood-shaving shaving-f" />
+
+          <span className="dust-speck dust-1" />
+          <span className="dust-speck dust-2" />
+          <span className="dust-speck dust-3" />
+          <span className="dust-speck dust-4" />
+          <span className="dust-speck dust-5" />
+          <span className="dust-speck dust-6" />
+          <span className="dust-speck dust-7" />
+          <span className="dust-speck dust-8" />
+          <span className="dust-speck dust-9" />
+          <span className="dust-speck dust-10" />
         </div>
 
         <div className="collection-wall">
