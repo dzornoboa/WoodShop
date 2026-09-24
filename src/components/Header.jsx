@@ -26,7 +26,7 @@ export default function Header() {
       // The pinned hero changes from dark to a light workshop background
       // after roughly one viewport of scroll. From that point onward the
       // dark navigation stays readable across the light Home sections.
-      setOverLightBackground(window.scrollY > window.innerHeight * 0.82)
+      setOverLightBackground(window.scrollY > window.innerHeight * 1.15)
     }
 
     updateHeaderTone()
