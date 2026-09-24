@@ -16,7 +16,7 @@ export default function Shop() {
 
   return (
     <main className="shop-page">
-      <section className="shop-hero section-pad">
+      <section className="shop-hero section-pad" data-header-theme="light">
         <span className="eyebrow dark">WoodShop collection</span>
         <h1>Built to protect.<br/><em>Finished to belong.</em></h1>
         <div className="shop-intro-row">
@@ -25,7 +25,7 @@ export default function Shop() {
         </div>
       </section>
 
-      <section className="shop-catalogue section-pad">
+      <section className="shop-catalogue section-pad" data-header-theme="light">
         <div className="filter-row" role="tablist" aria-label="Door categories">
           {categories.map(cat => (
             <button key={cat} className={active === cat ? 'active' : ''} onClick={() => setActive(cat)}>
