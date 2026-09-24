@@ -2013,3 +2013,277 @@ select {
 .nail-cursor.is-hidden {
   opacity: 0;
 }
+
+
+/* QA pass — navigation contrast, cursor and homepage type safety */
+.site-header {
+  transition: color .25s ease, background-color .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.site-header.header-light {
+  color: #fff;
+  background: linear-gradient(to bottom, rgba(17,16,14,.72), rgba(17,16,14,.12), transparent);
+  border-bottom: 1px solid transparent;
+}
+.site-header.header-dark {
+  color: var(--ink);
+  background: rgba(242,238,230,.9);
+  border-bottom: 1px solid rgba(17,16,14,.1);
+  box-shadow: 0 8px 28px rgba(17,16,14,.04);
+  backdrop-filter: blur(14px);
+}
+.site-header.header-dark .wordmark-mark {
+  border-color: rgba(17,16,14,.32);
+}
+.site-header.header-light .wordmark-mark {
+  border-color: rgba(255,255,255,.5);
+}
+.site-header.header-dark .header-cta {
+  border-color: rgba(17,16,14,.28);
+  background: rgba(255,255,255,.25);
+}
+.site-header.header-light .header-cta {
+  border-color: rgba(255,255,255,.45);
+}
+.site-header.header-dark .desktop-nav a,
+.site-header.header-dark .wordmark,
+.site-header.header-dark .header-cta,
+.site-header.header-dark .menu-toggle {
+  color: var(--ink);
+}
+.site-header.header-light .desktop-nav a,
+.site-header.header-light .wordmark,
+.site-header.header-light .header-cta,
+.site-header.header-light .menu-toggle {
+  color: #fff;
+}
+.desktop-nav a {
+  position: relative;
+}
+.desktop-nav a.active:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 1px;
+  background: currentColor;
+}
+.mobile-panel {
+  color: #fff !important;
+}
+.mobile-panel a {
+  color: #fff !important;
+  opacity: .7;
+}
+.mobile-panel a.active {
+  opacity: 1;
+}
+
+/* One visible pointer only: the nail. It never receives click events. */
+@media (pointer: fine) {
+  html.custom-cursor,
+  html.custom-cursor body,
+  html.custom-cursor body *,
+  html.custom-cursor a,
+  html.custom-cursor button,
+  html.custom-cursor input,
+  html.custom-cursor textarea,
+  html.custom-cursor select,
+  html.custom-cursor label,
+  html.custom-cursor [role="button"],
+  html.custom-cursor .door-card {
+    cursor: none !important;
+  }
+}
+.nail-cursor {
+  left: 0;
+  top: 0;
+  opacity: .95;
+  pointer-events: none !important;
+  transition: opacity .1s linear, scale .1s ease;
+  will-change: transform;
+}
+.nail-cursor.is-hidden {
+  opacity: 0;
+}
+.nail-cursor.pressed {
+  scale: .82;
+}
+
+/* Homepage text-overlap prevention */
+.door-lab-copy {
+  width: min(560px, 41vw);
+  max-width: 560px;
+}
+.door-lab-copy h1 {
+  max-width: 9.5ch;
+  font-size: clamp(52px, 6.7vw, 102px);
+  line-height: .91;
+  text-wrap: balance;
+}
+.door-lab-copy p {
+  max-width: 500px;
+}
+.statement-grid > *,
+.workshop-film > *,
+.section-heading-row > *,
+.about-hero > *,
+.contact-layout > * {
+  min-width: 0;
+}
+.statement-grid h2,
+.workshop-copy h2,
+.section-heading-row h2,
+.home-cta h2,
+.about-hero-copy h1,
+.contact-hero h1,
+.about-cta h2 {
+  text-wrap: balance;
+  overflow-wrap: normal;
+}
+.statement-grid h2 {
+  font-size: clamp(44px, 5vw, 78px);
+}
+.workshop-copy h2 {
+  font-size: clamp(42px, 5vw, 72px);
+}
+.home-cta h2 {
+  max-width: 11ch;
+}
+.section-heading-row h2 {
+  max-width: 13ch;
+}
+.phase-readout {
+  pointer-events: none;
+}
+.phase {
+  max-width: 80vw;
+}
+.phase strong {
+  line-height: 1.05;
+}
+.collection-caption {
+  max-width: 88vw;
+  white-space: normal;
+  width: max-content;
+}
+.collection-caption strong {
+  display: block;
+  text-wrap: balance;
+}
+
+@media (max-width: 1180px) and (min-width: 981px) {
+  .door-lab-copy {
+    width: 42vw;
+  }
+  .door-lab-copy h1 {
+    font-size: clamp(54px, 6.1vw, 76px);
+  }
+  .door-lab-scene {
+    right: 1vw;
+    width: 52vw;
+  }
+  .statement-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .statement-grid p {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 980px) {
+  .door-lab-copy {
+    top: 11vh;
+    left: 22px;
+    right: 22px;
+    width: auto;
+    max-width: 680px;
+  }
+  .door-lab-copy h1 {
+    max-width: 10ch;
+    font-size: clamp(48px, 9vw, 72px);
+    line-height: .92;
+  }
+  .door-lab-copy p {
+    max-width: 560px;
+  }
+  .door-lab-scene {
+    top: 40vh;
+    height: 55vh;
+    transform: scale(.72);
+  }
+  .phase-readout {
+    bottom: 3.5vh;
+    max-width: 72vw;
+  }
+  .statement-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .statement-grid p {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header {
+    height: 68px;
+    padding: 0 16px;
+  }
+  .wordmark {
+    font-size: 18px;
+  }
+  .wordmark-mark {
+    width: 30px;
+    height: 30px;
+  }
+  .mobile-panel {
+    top: 62px;
+  }
+  .door-lab-copy {
+    top: 9.5vh;
+  }
+  .door-lab-copy h1 {
+    font-size: clamp(40px, 12vw, 54px);
+    max-width: 9.5ch;
+    margin-top: 12px;
+    margin-bottom: 14px;
+  }
+  .door-lab-copy p {
+    max-width: 92vw;
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+  .scroll-cue {
+    margin-top: 18px;
+    font-size: 10px;
+  }
+  .door-lab-scene {
+    top: 38vh;
+    height: 56vh;
+    transform: scale(.55);
+  }
+  .phase-readout {
+    left: 18px;
+    bottom: 3vh;
+    max-width: 86vw;
+  }
+  .phase strong {
+    font-size: 24px;
+  }
+  .statement-grid h2,
+  .workshop-copy h2,
+  .section-heading-row h2 {
+    font-size: clamp(38px, 10vw, 50px);
+    line-height: 1;
+  }
+  .home-cta h2 {
+    font-size: clamp(48px, 13vw, 68px);
+    line-height: .94;
+  }
+  .door-card-overlay h3 {
+    font-size: clamp(30px, 10vw, 40px);
+    line-height: 1;
+  }
+}
