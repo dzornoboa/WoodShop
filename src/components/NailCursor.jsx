@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react'
 
+const interactiveSelector = 'a, button, input, textarea, select, label, [role="button"], .door-card'
+
 export default function NailCursor() {
   const ref = useRef(null)
 
@@ -10,10 +12,9 @@ export default function NailCursor() {
     let frame = 0
     let x = -100
     let y = -100
+    let hovering = false
 
     const render = () => {
-      // Keep the nail tip on the real pointer position. The element never
-      // receives pointer events, so links/buttons remain fully clickable.
       el.style.transform = `translate3d(${x - 36}px, ${y - 8}px, 0) rotate(34deg)`
       frame = 0
     }
@@ -21,12 +22,15 @@ export default function NailCursor() {
     const move = (event) => {
       x = event.clientX
       y = event.clientY
+      const target = event.target instanceof Element ? event.target : null
+      hovering = Boolean(target?.closest(interactiveSelector))
+      el.classList.toggle('is-hovering', hovering)
       el.classList.remove('is-hidden')
       if (!frame) frame = requestAnimationFrame(render)
     }
 
-    const down = () => el.classList.add('pressed')
-    const up = () => el.classList.remove('pressed')
+    const down = () => el.classList.add('is-clicking')
+    const up = () => el.classList.remove('is-clicking')
     const hide = () => el.classList.add('is-hidden')
 
     document.documentElement.classList.add('custom-cursor')
@@ -47,9 +51,11 @@ export default function NailCursor() {
 
   return (
     <div ref={ref} className="nail-cursor is-hidden" aria-hidden="true">
-      <span className="nail-head" />
-      <span className="nail-shaft" />
-      <span className="nail-tip" />
+      <div className="nail-cursor-inner">
+        <span className="nail-head" />
+        <span className="nail-shaft" />
+        <span className="nail-tip" />
+      </div>
     </div>
   )
 }
