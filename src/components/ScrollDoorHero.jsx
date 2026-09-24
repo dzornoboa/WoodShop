@@ -63,6 +63,7 @@ export default function ScrollDoorHero() {
 
         // lighten the studio while components are separated
         .to('.scroll-door-hero', { backgroundColor: '#e8e7e3', color: '#11100e', duration: .65 }, 1.22)
+        .set('.scroll-door-hero', { attr: { 'data-header-theme': 'light' } }, 1.22)
         .to('.hero-grain', { opacity: .22, duration: .55 }, 1.22)
         .to('.door-lab-shadow', { opacity: .15, scale: 1.1, duration: .5 }, 1.25)
         .to('.phase-two', { opacity: 0, y: -14, duration: .2 }, 1.8)
@@ -241,7 +242,7 @@ export default function ScrollDoorHero() {
   }, [])
 
   return (
-    <section ref={section} className="scroll-door-hero">
+    <section ref={section} className="scroll-door-hero" data-header-theme="dark">
       <div className="hero-grain" />
 
       <div className="door-lab-copy">
@@ -349,18 +350,19 @@ export default function ScrollDoorHero() {
           <span className="dust-speck dust-10" />
         </div>
 
-        <div className="collection-wall">
-          {doors.map((door) => (
-            <div className="collection-item" key={door.id}>
-              <DoorVisual index={door.spriteIndex} label={door.name} />
-              <span>{door.name}</span>
-            </div>
-          ))}
-        </div>
-        <div className="collection-caption">
-          <span>07 WoodShop concepts</span>
-          <strong>One workshop language. Different doors.</strong>
-        </div>
+      </div>
+
+      <div className="collection-wall">
+        {doors.map((door) => (
+          <div className="collection-item" key={door.id}>
+            <DoorVisual index={door.spriteIndex} label={door.name} />
+            <span>{door.name}</span>
+          </div>
+        ))}
+      </div>
+      <div className="collection-caption">
+        <span>07 WoodShop concepts</span>
+        <strong>One workshop language. Different doors.</strong>
       </div>
 
       <div className="phase-readout">
