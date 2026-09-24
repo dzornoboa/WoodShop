@@ -1,4 +1,5 @@
-import { doorSpriteUrl, doorSpriteCount } from '../assets/doorSprite'
+const doorSpriteUrl = '/doors.svg'
+const doorSpriteCount = 7
 
 export default function DoorVisual({ index = 0, className = '', label = 'WoodShop door' }) {
   const safeIndex = Math.max(0, Math.min(index, doorSpriteCount - 1))
