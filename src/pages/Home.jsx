@@ -82,7 +82,7 @@ function PointerImage({ src }) {
 
   return (
     <div className="pointer-media" onPointerMove={move} onPointerLeave={leave}>
-      <img src={src} alt="Joiner working in a wood workshop"/>
+      <img src={src} alt="Joiner working in a wood workshop" loading="lazy" decoding="async"/>
     </div>
   )
 }
