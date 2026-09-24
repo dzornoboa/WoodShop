@@ -2606,3 +2606,49 @@ select {
     padding-right: 20px;
   }
 }
+
+
+/* Shop hero uses the same full-bleed image system */
+.shop-hero-image {
+  position: relative;
+  min-height: 82vh;
+  color: #fff;
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-top: 150px;
+  padding-bottom: 90px;
+}
+.shop-hero-image h1 {
+  color: #fff;
+  text-shadow: 0 3px 28px rgba(0,0,0,.2);
+  margin-top: 14px;
+}
+.shop-hero-image .shop-intro-row {
+  max-width: 980px;
+}
+.shop-hero-image .shop-intro-row p,
+.shop-hero-image .render-note {
+  color: rgba(255,255,255,.72) !important;
+}
+.shop-hero-image .render-note {
+  border-left-color: rgba(255,255,255,.28);
+}
+.shop-page {
+  padding-top: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .shop-hero-image {
+    min-height: 78vh;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .shop-hero-image .shop-intro-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
