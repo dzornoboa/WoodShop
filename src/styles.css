@@ -1976,3 +1976,40 @@ dd { margin: 0; font-size: 13px; }
     display: none;
   }
 }
+
+
+/* Cursor usability fix */
+html,
+body,
+a,
+button,
+input,
+textarea,
+select,
+label,
+[role="button"] {
+  cursor: auto;
+}
+a,
+button,
+[role="button"],
+.door-card {
+  cursor: pointer;
+}
+input,
+textarea {
+  cursor: text;
+}
+select {
+  cursor: default;
+}
+.nail-cursor {
+  left: 0;
+  top: 0;
+  opacity: .68;
+  transition: opacity .12s ease, scale .12s ease;
+  will-change: transform, opacity;
+}
+.nail-cursor.is-hidden {
+  opacity: 0;
+}
