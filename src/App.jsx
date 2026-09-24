@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -25,6 +25,7 @@ export default function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
     </>
