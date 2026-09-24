@@ -16,7 +16,7 @@ export default function Home() {
     <main>
       <ScrollDoorHero />
 
-      <section className="statement-section section-pad">
+      <section className="statement-section section-pad" data-header-theme="light">
         <span className="eyebrow dark">What we make</span>
         <div className="statement-grid">
           <h2>Crafted like furniture.<br/>Built like architecture.</h2>
@@ -24,7 +24,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="process-section section-pad">
+      <section className="process-section section-pad" data-header-theme="light">
         {steps.map(([Icon, title, text], i) => (
           <article className="process-card" key={title}>
             <div className="process-number">0{i + 1}</div>
@@ -35,7 +35,7 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="workshop-film section-pad">
+      <section className="workshop-film section-pad" data-header-theme="dark">
         <div className="workshop-copy">
           <span className="eyebrow">Inside the workshop</span>
           <h2>The work happens before the door reaches the wall.</h2>
@@ -45,7 +45,7 @@ export default function Home() {
         <PointerImage src={workshopImages.bench}/>
       </section>
 
-      <section className="featured-products section-pad">
+      <section className="featured-products section-pad" data-header-theme="light">
         <div className="section-heading-row">
           <div>
             <span className="eyebrow dark">Selected doors</span>
@@ -56,7 +56,7 @@ export default function Home() {
         <ProductGrid items={doors.slice(0, 4)} />
       </section>
 
-      <section className="home-cta section-pad">
+      <section className="home-cta section-pad" data-header-theme="dark">
         <p>Have a doorway, reference image or security requirement?</p>
         <h2>Bring us the opening.<br/><em>We’ll build the door.</em></h2>
         <Link to="/contact" className="light-button">Start a custom project <ArrowRight size={18}/></Link>
