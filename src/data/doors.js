@@ -1,7 +1,7 @@
 export const workshopImages = {
-  joiner: 'https://images.unsplash.com/photo-1769353086138-19ee65291a04?auto=format&fit=crop&q=82&w=1600',
-  bench: 'https://images.unsplash.com/photo-1756736668479-334787633abf?auto=format&fit=crop&q=82&w=1600',
-  detail: 'https://images.unsplash.com/photo-1683115096447-5d01c11d3ead?auto=format&fit=crop&q=82&w=1600',
+  joiner: 'https://images.unsplash.com/photo-1769353086138-19ee65291a04?auto=format&fit=crop&fm=webp&q=68&w=1400',
+  bench: 'https://images.unsplash.com/photo-1756736668479-334787633abf?auto=format&fit=crop&fm=webp&q=68&w=1400',
+  detail: 'https://images.unsplash.com/photo-1683115096447-5d01c11d3ead?auto=format&fit=crop&fm=webp&q=68&w=1400',
 }
 
 export const doors = [
