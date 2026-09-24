@@ -12,7 +12,10 @@ export default function Footer() {
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
       </div>
-      <div className="footer-note">Built in the workshop. Fitted for the space.</div>
+      <div className="footer-contact">
+        <a href="tel:+233549860795">+233 54 986 0795</a>
+        <a href="mailto:cstmrsolution@gmail.com">cstmrsolution@gmail.com</a>
+      </div>
     </footer>
   )
 }
