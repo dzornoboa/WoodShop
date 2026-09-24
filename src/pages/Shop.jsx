@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { X, ArrowRight } from 'lucide-react'
 import ProductGrid from '../components/ProductGrid'
 import DoorVisual from '../components/DoorVisual'
@@ -54,9 +55,9 @@ export default function Shop() {
                 <div><dt>Use</dt><dd>{selected.use}</dd></div>
                 <div><dt>Finish</dt><dd>{selected.finish}</dd></div>
               </dl>
-              <a className="dark-button" href={`/contact?door=${selected.id}`}>
+              <Link className="dark-button" to={`/contact?door=${selected.id}`}>
                 Request this design <ArrowRight size={18}/>
-              </a>
+              </Link>
             </div>
           </aside>
         </div>
