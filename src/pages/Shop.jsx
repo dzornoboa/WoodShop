@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { X, ArrowRight } from 'lucide-react'
 import ProductGrid from '../components/ProductGrid'
+import DoorVisual from '../components/DoorVisual'
 import { categories, doors } from '../data/doors'
 
 export default function Shop() {
@@ -16,8 +17,11 @@ export default function Shop() {
     <main className="shop-page">
       <section className="shop-hero section-pad">
         <span className="eyebrow dark">WoodShop collection</span>
-        <h1>Choose a direction.<br/><em>Then make it yours.</em></h1>
-        <p>These designs are a starting point for proportions, material and finish. Final dimensions, locking systems and details are specified per project.</p>
+        <h1>Built to protect.<br/><em>Finished to belong.</em></h1>
+        <div className="shop-intro-row">
+          <p>Every catalogue design starts from the same workshop discipline: measured proportions, considered joinery, durable hardware and a finish selected for the space.</p>
+          <p className="render-note">The collection below uses WoodShop concept renders developed from our door references so the range is shown with one consistent camera, background and lighting system.</p>
+        </div>
       </section>
 
       <section className="shop-catalogue section-pad">
@@ -37,7 +41,9 @@ export default function Shop() {
         <div className="product-modal-backdrop" onClick={() => setSelected(null)}>
           <aside className="product-modal" onClick={e => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setSelected(null)} aria-label="Close"><X/></button>
-            <div className="modal-image"><img src={selected.image} alt={selected.name}/></div>
+            <div className="modal-image generated-modal-stage">
+              <DoorVisual index={selected.spriteIndex} label={`${selected.name} door`} />
+            </div>
             <div className="modal-content">
               <span className="eyebrow dark">{selected.category}</span>
               <h2>{selected.name}</h2>
