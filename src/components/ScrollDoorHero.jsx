@@ -211,19 +211,30 @@ export default function ScrollDoorHero() {
         .to('.collection-wall', { scale: 1.08, y: -26, duration: .52 }, 5.52)
         .to('.collection-wall,.collection-caption', { opacity: 0, duration: .42 }, 5.88)
 
-      const quickX = gsap.quickTo(stage.current, 'rotationY', { duration: .55, ease: 'power3.out' })
-      const quickY = gsap.quickTo(stage.current, 'rotationX', { duration: .55, ease: 'power3.out' })
+      const quickX = gsap.quickTo(stage.current, 'rotationY', { duration: .45, ease: 'power3.out' })
+      const quickY = gsap.quickTo(stage.current, 'rotationX', { duration: .45, ease: 'power3.out' })
 
       const move = (e) => {
         if (matchMedia('(pointer: coarse)').matches) return
-        const nx = (e.clientX / innerWidth - .5) * 4
-        const ny = (e.clientY / innerHeight - .5) * -2.5
+        const rect = section.current.getBoundingClientRect()
+        const nx = ((e.clientX - rect.left) / rect.width - .5) * 4
+        const ny = ((e.clientY - rect.top) / rect.height - .5) * -2.5
         quickX(nx)
         quickY(ny)
       }
 
-      window.addEventListener('pointermove', move)
-      return () => window.removeEventListener('pointermove', move)
+      const reset = () => {
+        quickX(0)
+        quickY(0)
+      }
+
+      section.current.addEventListener('pointermove', move, { passive: true })
+      section.current.addEventListener('pointerleave', reset)
+
+      return () => {
+        section.current?.removeEventListener('pointermove', move)
+        section.current?.removeEventListener('pointerleave', reset)
+      }
     }, section)
 
     return () => ctx.revert()
